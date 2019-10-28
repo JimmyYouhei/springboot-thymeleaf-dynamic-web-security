@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace = "fragment/fragments :: charset">
+<meta th:replace = "fragment/fragments :: viewport">
+<link th:replace = "fragment/fragments :: bootstrap">
+<link th:replace = "fragment/fragments :: css">
+<title>Course Form</title>
+</head>
+<body class="bg-secondary">
+
+<div class="container">
+	<h1 class="text-info text-center font-weight-bold">Course Form Page</h1>
+	<hr>
+	
+	<form action="#" th:action="@{/admin/processForm}" method="post" th:object="${student}">
+		<table class="table table-bordered table-dark">
+			<tbody>
+			
+				<tr>
+					<td scope="row"><label>Full Name</label></td>
+					<td><input  th:field="*{fullName}"/></td>
+					
+					<td><p th:errors="*{fullName}"></td>
+					
+				</tr>
+				
+				<tr>
+					<td scope="row"><label>Age</label></td>
+					<td><input type="text" th:field="*{age}"/></td>
+					<td><p th:errors="*{age}"></td>
+				</tr>
+				
+				<tr>
+					<td scope="row"><label>Nation</label></td>
+					<td>
+						<select th:field ="*{nation}">
+							<option value="" ></option>
+							<option th:each = "nation : ${nations}" th:value="${nation}" th:text="${nation}"/>
+						</select>
+					</td>
+					
+						<td><p th:errors ="*{nation}"></td>
+						
+				</tr>
+				
+				<tr>
+					<td scope="row"><label>Courses</label></td>
+					<td>
+						<select  th:field="*{courses}" multiple="multiple">
+							<option th:each="course : ${courses}" th:value="${course}" th:text="${course}"/>
+						</select>
+					</td>
+						<td><p th:errors ="*{courses}"></td>
+						
+				</tr>
+				
+				<tr>
+					<td scope="row"><label>Language</label></td>
+					<td>
+						<th:block th:each="language: ${languages}">
+							<input type = "checkbox" th:field="*{languages}" th:value="${language}" th:text="${language}">
+						</th:block>
+					</td>
+						<td><p th:errors="*{languages}"/></td>
+						
+				</tr>
+				
+				<tr>
+					<td>
+						<button type="submit">Submit</button>
+					</td>
+					
+					<td>
+						<a th:href="@{/}"><button type="button" >Back</button></a>
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</form>
+	
+</div>
+
+<div th:replace = "fragment/fragments :: footer"></div>
+</body>
+</html>

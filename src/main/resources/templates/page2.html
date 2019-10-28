@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace = "fragment/fragments :: charset">
+<meta th:replace = "fragment/fragments :: viewport">
+<link th:replace = "fragment/fragments :: bootstrap">
+<link th:replace = "fragment/fragments :: css">
+<title>Page2</title>
+</head>
+<body class="bg-secondary">
+
+	<div th:replace = "fragment/fragments :: navigation"></div>
+	
+	<div class="container">
+		<h1 class="text-info text-center font-weight-bold">Hi this is the page 2</h1>
+	</div>
+	
+	<div th:replace = "fragment/fragments :: footer"></div>
+</body>
+</html>

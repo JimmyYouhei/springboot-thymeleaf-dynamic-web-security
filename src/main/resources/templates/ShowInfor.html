@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace = "fragment/fragments :: charset">
+<meta th:replace = "fragment/fragments :: viewport">
+<link th:replace = "fragment/fragments :: bootstrap">
+<link th:replace = "fragment/fragments :: css">
+<title>Course Enroll Infor</title>
+</head>
+<body class="bg-secondary">
+
+	<div class="container">
+	
+		<h1 class="text-info text-center font-weight-bold">Course Enrollment Form Detail</h1>
+		<hr>
+	
+		<table class="table table-bordered table-dark">
+			<thead>
+				<tr>
+					<th scope="col">Full Name</th>
+					<th scope="col">Age</th>
+					<th scope="col">Nation</th>
+					<th scope="col">Courses enroll</th>
+					<th scope="col">Languages</th>
+				</tr>
+			</thead>
+		
+			<tbody>
+				<tr>
+					<td scope="row" th:text="${student.fullName}"></td>
+					<td th:text="${student.age}"></td>
+					<td th:text="${student.nation}"></td>
+					<td th:text="${student.printCourses()}"></td>
+					<td th:text="${student.printLanguages()}"></td>
+					
+				</tr>
+			</tbody>
+		
+		</table>
+	
+	</div>
+	
+<div th:replace = "fragment/fragments :: footer"></div>
+</body>
+</html>
